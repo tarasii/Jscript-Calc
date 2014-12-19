@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Calculator</title>
+		
+		<script type="text/javascript">
+                        var resstr = '0';
+			var leftop = 0;
+			var rightop = 0;
+			var oper = '';
+
+
+			function myFunction(inParam){
+				var txtRes = document.getElementById('res');
+				var txtInp = document.getElementById('inp');
+
+				//console.log(inParam);
+
+				if (resstr == '0') {resstr = ''}
+				
+				console.log(""+inParam + " " + leftop.toString() + " " + resstr + " " + oper);
+
+				if ((inParam == '+')||(inParam == '-')||(inParam == '*')||(inParam == '/')||(inParam == '=')) {
+					if (leftop != 0) { 
+						rightop = parseInt(resstr);  
+					
+						if (oper == '+') {res = leftop + rightop; }
+						if (oper == '-') {res = leftop - rightop; }
+                                        	if (oper == '*') {res = leftop * rightop; }
+                                        	if (oper == '/') {res = leftop / rightop; }
+						leftop = res; 
+					}else{
+						leftop = parseInt(resstr);
+					}
+
+					if (inParam == '=') { oper = "" }
+					oper = inParam;
+
+					resstr  = '0'
+
+				}
+
+                        	if (inParam == 'x') { resstr = '0'; leftop = 0; };
+                       		if (inParam == '1') { resstr = resstr + '1'};
+                       		if (inParam == '2') { resstr = resstr + '2'};
+                       		if (inParam == '3') { resstr = resstr + '3'};
+                       		if (inParam == '4') { resstr = resstr + '4'};
+                       		if (inParam == '5') { resstr = resstr + '5'};
+                       		if (inParam == '6') { resstr = resstr + '6'};
+                       		if (inParam == '7') { resstr = resstr + '7'};
+                       		if (inParam == '8') { resstr = resstr + '8'};
+                       		if (inParam == '9') { resstr = resstr + '9'};
+                       		if (inParam == '0') { resstr = resstr + '0'};
+
+ 
+				txtRes.value = resstr; 
+				txtInp.value = leftop;
+				return 1;
+                        }
+    
+
+		</script>
+	</head>
+	<body>			
+
+		<INPUT id = "res" value = "0">
+		<BR>
+		<INPUT id = "inp" value = "0">
+		<BUTTON id = "x" onclick="myFunction('x')" >C</BUTTON>
+		<BR>
+                <BUTTON id = "n1" onclick="myFunction('1')">1</BUTTON>		
+                <BUTTON id = "n2" onclick="myFunction('2')">2</BUTTON>		
+                <BUTTON id = "n3" onclick="myFunction('3')">3</BUTTON>
+                <BUTTON id = "np" onclick="myFunction('+')">+</BUTTON>
+                <BR>		
+                <BUTTON id = "n4" onclick="myFunction('4')">4</BUTTON>		
+                <BUTTON id = "n5" onclick="myFunction('5')">5</BUTTON>		
+                <BUTTON id = "n6" onclick="myFunction('6')">6</BUTTON>
+                <BUTTON id = "nm" onclick="myFunction('-')">-</BUTTON>
+                <BR>		
+                <BUTTON id = "n7" onclick="myFunction('7')">7</BUTTON>		
+                <BUTTON id = "n8" onclick="myFunction('8')">8</BUTTON>		
+                <BUTTON id = "n9" onclick="myFunction('9')">9</BUTTON>
+                <BUTTON id = "nu" onclick="myFunction('*')">*</BUTTON>
+                <BR>		
+                <BUTTON id = "n0" onclick="myFunction('0')">0</BUTTON>		
+                <BUTTON id = "nz" onclick="myFunction('.')">.</BUTTON>		
+                <BUTTON id = "nr" onclick="myFunction('=')">=</BUTTON>
+                <BUTTON id = "nd" onclick="myFunction('/')">/</BUTTON>
+	</body>
+</html>
